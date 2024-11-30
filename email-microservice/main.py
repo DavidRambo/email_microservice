@@ -40,3 +40,8 @@ class EmailSend(EmailBase):
     mail_port: int = pydantic.Field(default=settings.mail_port)
     sender: pydantic.EmailStr = pydantic.Field(default=settings.sender_addr)
     password: str = pydantic.Field(default=settings.sender_password)
+
+
+@app.post("/send-email", status_code=201)
+def send_email(email: EmailSend):
+    pass
