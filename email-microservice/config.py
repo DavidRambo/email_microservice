@@ -20,5 +20,11 @@ class Settings(pydantic_settings.BaseSettings):
     sender_addr: str = pydantic.Field(alias="sender")
     sender_password: str = pydantic.Field(alias="password")
 
+    origins: list[str] = [
+        "http://localhost:5173",
+        "http://localhost:8000",
+        "http://localhost",
+    ]
+
 
 settings = Settings()

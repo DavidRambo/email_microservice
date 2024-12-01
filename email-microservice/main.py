@@ -9,15 +9,9 @@ from config import settings
 
 app = fastapi.FastAPI()
 
-origins = [
-    "http://localhost:5173",
-    "http://localhost:8000",
-    "http://localhost",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=settings.origins,
     allow_credentials=False,
     allow_methods=["GET", "POST", "PATCH", "DELETE"],
     allow_headers=["*"],
